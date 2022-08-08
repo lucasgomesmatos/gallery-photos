@@ -5,3 +5,4 @@
   * TypeScript
   * React
   * Firebase
+ * Styled Components
