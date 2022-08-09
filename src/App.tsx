@@ -9,6 +9,7 @@ import { Photo } from "./types/Photo"
 
 const App = () => {
   const[uploading, setUploading] = useState(false);
+  const[destroy, setDestroy] = useState(false);
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState<Photo[]>([])
 
@@ -51,12 +52,14 @@ const App = () => {
   }
 
   const handleDestroyImage = async (name : string) => {
+    setDestroy(true);
     const destroy = await Photos.destroy(name)
     if(destroy) {
       const newList = photos.filter((item) => (
         item.name !== name 
       ))
       setPhotos(newList);
+      setDestroy(false)
     } else {
       throw new Error('Error')
     }
@@ -89,7 +92,9 @@ const App = () => {
         {photos.map((item, index) => (
           <div key={index}>
             <PhotoItem key={index} url={item.url} name={item.name}/>
-            <button onClick={() => handleDestroyImage(item.name)}>Excluir</button>
+            <button onClick={() => handleDestroyImage(item.name)}>
+              Excluir
+            </button>
           </div>
         ))}
         

@@ -9,8 +9,10 @@ export const Container = styled.div`
 
 export const Area = styled.div`
   margin: auto;
-  max-width: 980px;
+  max-width: 960px;
   padding: 30px 0;
+
+  
 `
 
 export const Header = styled.h1`
@@ -45,6 +47,10 @@ export const PhotoList = styled.div`
     &:hover {
       opacity: .9;
     }}
+
+    @media (max-width: 960px) {
+      grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 export const UploadFrom = styled.form`
