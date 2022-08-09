@@ -57,6 +57,8 @@ const App = () => {
         item.name !== name 
       ))
       setPhotos(newList);
+    } else {
+      throw new Error('Error')
     }
     
   }
@@ -70,7 +72,7 @@ const App = () => {
           <input type="file" name="image" />
           {uploading  ?
           <button type="submit" disabled>Enviando...</button>
-           : <button type="submit">Salvar</button>
+           : <button type="submit">Enviar</button>
           }
       </C.UploadFrom>
 
@@ -86,7 +88,8 @@ const App = () => {
       <C.PhotoList>
         {photos.map((item, index) => (
           <div key={index}>
-            <PhotoItem key={index} url={item.url} name={item.name} handleDestroyImage ={handleDestroyImage}/>
+            <PhotoItem key={index} url={item.url} name={item.name}/>
+            <button onClick={() => handleDestroyImage(item.name)}>Excluir</button>
           </div>
         ))}
         
