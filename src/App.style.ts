@@ -61,6 +61,7 @@ export const UploadFrom = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 
   button {
     background: #756df4;
@@ -75,4 +76,22 @@ export const UploadFrom = styled.form`
       opacity: .9;
     }
   }
+
+  
+`
+
+export const Input = styled.div`
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  input[type="file"] {
+    background: transparent;
+    cursor: pointer;
+  }
+
 `
